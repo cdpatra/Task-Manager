@@ -3,15 +3,19 @@ import cors from "cors";
 import { connectMongoDB } from "./connectionDB.js";
 import userRouter from "./routes/userRoutes.js";
 import taskRouter from "./routes/taskRoutes.js";
+import dotenv from "dotenv";
+
+// .env
+dotenv.config();
 
 const app = express();
-const PORT = 9090;
+const PORT = process.env.PORT_NO;
 
 app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-   origin: "http://localhost:5173",
+   origin: process.env.CORS_ORIGIN,
    methods: ["GET", "POST", "PATCH", "DELETE"], // Allowed HTTP methods
    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
 };
@@ -19,7 +23,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // connecting with the mongo db
-connectMongoDB("mongodb://127.0.0.1:27017/task_manager").then(() => console.log("DB connected Successfully"));
+connectMongoDB(process.env.MONGO_URI).then(() => console.log("DB connected Successfully"));
 
 // API Routes
 app.use("/api/user", userRouter);
