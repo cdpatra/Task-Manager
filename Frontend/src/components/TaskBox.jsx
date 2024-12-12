@@ -58,7 +58,7 @@ function TaskBox({ task, requestDeleteTask, requestUpdateTask }) {
                   );
                   setIsExpanded(false);
                }}
-               className="text-white bg-blue-700 rounded-l-none rounded-t-none  hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-2 py-1 text-xs  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+               className="text-white  rounded-l-none rounded-t-none focus:ring-4 font-medium rounded-lg px-2 py-1 text-xs  bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-800">
                Update
             </button>
          </div>

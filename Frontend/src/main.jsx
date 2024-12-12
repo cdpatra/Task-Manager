@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")).render(
             element={
                <UserProvider>
                   <Toaster />
-                  <div className="dark:text-slate-300">
+                  <div className="text-slate-300">
                      <App />
                   </div>
                </UserProvider>

@@ -101,12 +101,12 @@ function Tasks() {
                            id="default-input"
                            onChange={(event) => setTaskTitle(event.target.value)}
                            value={taskTitle}
-                           className="bg-gray-50 border outline-none border-gray-300 text-gray-900  rounded-lg block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                           className=" border outline-none  rounded-lg block w-full p-4 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
                         />
                         <button
                            type="button"
                            onClick={() => requestAddTask()}
-                           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                           className="text-white   focus:ring-4  font-medium rounded-lg text-sm px-5 py-2.5 bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-800">
                            Add
                         </button>
                      </div>
