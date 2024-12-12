@@ -110,14 +110,18 @@ function Tasks() {
                            Add
                         </button>
                      </div>
-                     {allTasks.map((task) => (
-                        <TaskBox
-                           key={task._id}
-                           task={task}
-                           requestDeleteTask={requestDeleteTask}
-                           requestUpdateTask={requestUpdateTask}
-                        />
-                     ))}
+                     {allTasks.length === 0 ? (
+                        <div className="text-center text-slate-500 text-xl">No task Found !</div>
+                     ) : (
+                        allTasks.map((task) => (
+                           <TaskBox
+                              key={task._id}
+                              task={task}
+                              requestDeleteTask={requestDeleteTask}
+                              requestUpdateTask={requestUpdateTask}
+                           />
+                        ))
+                     )}
                   </div>
                </div>
             </div>

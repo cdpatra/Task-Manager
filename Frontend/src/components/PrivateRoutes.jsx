@@ -20,6 +20,7 @@ function PrivateRoutes() {
                toast.error(error.message);
             }
             localStorage.removeItem("token");
+            toast("❗You are Logged Out");
             navigate("/login");
          }
       };

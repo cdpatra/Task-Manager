@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import logo from "../assets/images/logo.png";
+import toast from "react-hot-toast";
 
 function UserNavBar() {
    const handleLogout = () => {
       localStorage.removeItem("token");
+      toast("❗You are Logged Out");
    };
    return (
       <nav className="absolute p-2 flex justify-between top-0 right-0 left-0">
