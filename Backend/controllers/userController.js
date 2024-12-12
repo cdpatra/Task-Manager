@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 import { generateJWTToken } from "../services/auth.js";
 
-export const handleUserRegistration = async (req,res) => {
+export const handleUserRegistration = async (req, res) => {
    const { name, email, password } = req.body;
 
    try {
@@ -17,7 +17,7 @@ export const handleUserRegistration = async (req,res) => {
    }
 };
 
-export const handleUserLogin = async (req,res) => {
+export const handleUserLogin = async (req, res) => {
    const { email, password } = req.body;
    try {
       const user = await User.findOne({ email });
@@ -31,6 +31,20 @@ export const handleUserLogin = async (req,res) => {
       } else {
          return res.status(401).json({ message: "Invalid Email or Password" });
       }
+   } catch (error) {
+      return res.status(500).json({ message: error.message });
+   }
+};
+
+export const getUserInfo = async (req, res) => {
+   try {
+      const user = await User.findById(req.user._id);
+      return res.status(200).json({
+         id: user._id,
+         email: user.email,
+         name: user.name,
+         token: req.token,
+      });
    } catch (error) {
       return res.status(500).json({ message: error.message });
    }

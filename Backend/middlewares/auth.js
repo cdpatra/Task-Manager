@@ -8,6 +8,7 @@ export const auth = async (req, res, next) => {
          const result = verifyJWTToken(token);
          const user = await User.findById(result._id).select("-password");
          req.user = user;
+         req.token=token;
          next();
       } catch (error) {
          res.status(401).json({ message: "unauthorized access" });

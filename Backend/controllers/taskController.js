@@ -22,9 +22,6 @@ export const createNewTask = async (req, res) => {
 export const updateTask = async (req, res) => {
    try {
       const task = await Task.findById(req.params.id);
-      console.log(task);
-      console.log(req.user._id);
-      console.log(task.userId.toString() !== req.user._id.toString());
       if (!task || task.userId.toString() !== req.user._id.toString()) {
          return res.status(401).json({ message: "Not Authorized" });
       }
