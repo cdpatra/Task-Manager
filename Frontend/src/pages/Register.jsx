@@ -11,6 +11,11 @@ function Register() {
    const navigate = useNavigate();
    const submitHandler = (event) => {
       event.preventDefault();
+      // validation
+      if (!userInfo.name.trim() || !userInfo.email.trim() || !userInfo.password.trim()) {
+         toast.error("Field should not be empty");
+         return;
+      }
       const requestRegister = async () => {
          try {
             await apiClient.post("/api/user/register", userInfo);

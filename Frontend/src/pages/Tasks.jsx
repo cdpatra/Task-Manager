@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TaskBox from "../components/TaskBox";
 import UserNavBar from "../components/UserNavBar";
 import privateApiClient from "../services/privateApiClient.js";
 import toast from "react-hot-toast";
+import { userContext } from "../contexts/userContext.jsx";
 
 const requestAllTasks = async () => {
    try {
@@ -18,6 +19,8 @@ const requestAllTasks = async () => {
 };
 
 function Tasks() {
+   const [user] = useContext(userContext);
+
    // fetch all tasks
    const [allTasks, setAllTasks] = useState([]);
    useEffect(() => {
@@ -88,6 +91,9 @@ function Tasks() {
          <div className="flex justify-center">
             <div className="w-full px-2">
                <div className="max-w-[800px] mx-auto">
+                  <div className="my-8 text-2xl font-inter text-center font-extrabold bg-gradient-to-r from-blue-500 via-green-400 to-indigo-400 text-transparent bg-clip-text">
+                     Welcome! <span className="text-slate-300 font-semibold font-poppins">{user.name}</span>
+                  </div>
                   <div className="flex flex-col">
                      <div className="flex gap-2 mb-8">
                         <input
